@@ -51,15 +51,37 @@ describe('/package/:name/:version endpoint', () => {
 
     expect(res.transitiveDependencies).toEqual([
       {
-        name: 'loose-envify',
-        version: '1.1.0',
-        dependencies: { 'js-tokens': '^1.0.1' }
+        "name": "loose-envify",
+        "version": "1.1.0",
+        "dependencies": {
+          "js-tokens": {
+            "name": "js-tokens",
+            "version": "1.0.1"
+          }
+        }
       },
-      {},
       {
-        name: 'prop-types',
-        version: '15.6.2',
-        dependencies: { 'loose-envify': '^1.3.1', 'object-assign': '^4.1.1' }
+        
+      },
+      {
+        "name": "prop-types",
+        "version": "15.6.2",
+        "dependencies": {
+          "loose-envify": {
+            "name": "loose-envify",
+            "version": "1.3.1",
+            "dependencies": {
+              "js-tokens": {
+                "name": "js-tokens",
+                "version": "3.0.0"
+              }
+            }
+          },
+          "object-assign": {
+            "name": "object-assign",
+            "version": "4.1.1"
+          }
+        }
       }
     ]);
   });
