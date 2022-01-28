@@ -29,7 +29,6 @@ export const getPackage: RequestHandler = async function (req, res, next) {
         }
       }
     }
-    console.log(transitiveDependencies);
     
     return res
       .status(200)
